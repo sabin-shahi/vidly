@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = 'wtuu^=_1uslkxhc&d)(v17ekh7@go(m@a##7t0pbg9e!0z9b9s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','.now.sh']
 
 # '.vercel.app'
 
@@ -78,10 +79,68 @@ WSGI_APPLICATION = 'vidly.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'DATABASE_PUBLIC_URL': 'postgresql://postgres:bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG@junction.proxy.rlwy.net:33229/railway',
+#         'DATABASE_URL': 'postgresql://postgres:bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG@postgres.railway.internal:5432/railway',
+#         'PGDATA': '/var/lib/postgresql/data/pgdata',
+#         'PGDATABASE': 'railway',
+#         'PGPASSWORD': 'bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG',
+#         'POSTGRES_USER': 'postgres',
+#         'POSTGRES_DB': 'railway',
+#         'PGUSER': 'postgres',
+#         'POSTGRES_PASSWORD': 'bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG',
+#         'PGHOST': 'postgres.railway.internal',
+#         'PGPORT': '5432',
+#         'SSL_CERT_DAYS': '820'
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'DATABASE_PUBLIC_URL': 'postgresql://postgres:bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG@junction.proxy.rlwy.net:33229/railway',
+#         'DATABASE_URL': 'postgresql://postgres:bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG@postgres.railway.internal:5432/railway',
+#         'PGDATA': '/var/lib/postgresql/data/pgdata',
+#         'PGDATABASE': 'railway',
+#         'PGPASSWORD': 'bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG',
+#         'POSTGRES_USER': 'postgres',
+#         'POSTGRES_DB': 'railway',
+#         'PGUSER': 'postgres',
+#         'POSTGRES_PASSWORD': 'bPJBRzLZNsrjoZsLbmwTDQxCJbldhpCG',
+#         'PGHOST': 'postgres.railway.internal',
+#         'PGPORT': '5432',
+#         'SSL_CERT_DAYS': '820'
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.ratujpagziidknckwqup',
+        'PASSWORD': 'w_NKhyRca5Nvz8m' ,
+        'HOST': 'aws-0-ap-southeast-1.pooler.supabase.com',
+        'PORT': '6543'
     }
 }
 
